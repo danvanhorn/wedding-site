@@ -49,6 +49,8 @@ const App = ({ mobile }) => (
           </Card>
         </Card.Group>
 
+        <Divider hidden/>
+
       </Container>
       <p>Copyright 2019 Dan Van Horn</p>
     </Container>  

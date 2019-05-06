@@ -31,8 +31,8 @@
       "dest": "/manifest.json"
     },
     {
-      "src": "/images/*",
-      "dest": "/images/*"
+      "src": "/images/*.jpg",
+      "dest": "/*.jpg"
     },
     {
       "src": "/precache-manifest.(.*)",
