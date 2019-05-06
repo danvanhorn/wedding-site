@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "create-react-app",
+  "name": "wedding-site",
   "builds": [
     {
       "src": "package.json",
