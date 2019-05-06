@@ -27,6 +27,10 @@
       "dest": "/favicon.ico"
     },
     {
+      "src": "/images/0.jpg",
+      "dest": "/images/0.jpg"
+    },
+    {
       "src": "/asset-manifest.json",
       "dest": "/asset-manifest.json"
     },
