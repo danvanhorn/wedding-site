@@ -8,6 +8,10 @@
       "config": {
         "distDir": "build"
       }
+    },
+    {
+      "src": "/src/images/*",
+      "use": "@now/static"
     }
   ],
   "routes": [
