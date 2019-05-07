@@ -1,5 +1,6 @@
 import React from 'react'
 import process from 'process'
+import validator from 'validator'
 import axios from 'axios'
 import { Button, Modal, Form, Checkbox } from 'semantic-ui-react'
 
@@ -28,7 +29,8 @@ export class RSVPModal extends React.Component {
       return false;
     }
 
-    if(!email) {
+    if(!validator.isEmail(email)) {
+      // prompt for valid email
       return false;
     }
   }
