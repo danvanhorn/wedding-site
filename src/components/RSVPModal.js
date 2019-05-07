@@ -35,8 +35,8 @@ export class RSVPModal extends React.Component {
 
   submitRSVP(event) {
     if(this.isValid()) {
-      axios.post(process.env.API_URL).then()
-
+      axios.post(process.env.API_URL).then(response => console.log(response))
+      .catch(err => console.error(err))
     }
   }
 
