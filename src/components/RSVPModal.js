@@ -1,4 +1,6 @@
 import React from 'react'
+import process from 'process'
+import axios from 'axios'
 import { Button, Modal, Form, Checkbox } from 'semantic-ui-react'
 
 export class RSVPModal extends React.Component {
@@ -7,15 +9,31 @@ export class RSVPModal extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
+      email: '',
       plusOne: false
     }
 
     this.submitRSVP = this.submitRSVP.bind(this);
   }
 
+  isValid() {
+    const { firstName, lastName, email } = this.state 
+    if(!firstName) {
+
+    }
+
+    if(!lastName) {
+
+    }
+
+    if(!email) {
+
+    }
+  }
+
   submitRSVP(event) {
-    alert(this.state.firstName);
-    event.preventDefault();
+    //axios.post(process.env.API_URL)
+    
   }
 
   render() {
@@ -31,6 +49,10 @@ export class RSVPModal extends React.Component {
         <Form.Field>
           <label>Last Name</label>
           <input placeholder='Last Name' value={this.state.lastName} onChange={(event) => this.setState({ lastName: event.target.value })}/>
+        </Form.Field>
+        <Form.Field>
+          <label>Email</label>
+          <input placeholder='Email' value={this.state.email} onChange={(event) => this.setState({ email: event.target.value })}/>
         </Form.Field>
         <Form.Field>
           <Checkbox label='Plus one?' onChange={(event) => this.setState({ plusOne: event.target.value })}/>
