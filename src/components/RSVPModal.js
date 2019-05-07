@@ -1,8 +1,8 @@
 import React from 'react'
-import process from 'process'
 import validator from 'validator'
-import axios from 'axios'
 import { Button, Modal, Form, Checkbox } from 'semantic-ui-react'
+
+
 
 export class RSVPModal extends React.Component {
   constructor() {
@@ -38,7 +38,12 @@ export class RSVPModal extends React.Component {
     event.preventDefault();
     const { firstName, lastName, email, plusOne } = this.state 
     if(this.isValid()) {
-      axios.post(`${process.env.API_URL}/rsvp`, { firstName, lastName, email, plusOne }).then(response => console.log(response))
+      window.fetch(`https://nodejs.vanhornd.now.sh/rsvp`, { 
+        method: "POST",
+        mode: "cors",
+        body: JSON.stringify({ firstName, lastName, email, plusOne })
+      })
+      .then(response => console.log(response))
       .catch(err => console.error(err))
     }
   }
