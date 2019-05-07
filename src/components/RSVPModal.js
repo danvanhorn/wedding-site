@@ -35,8 +35,10 @@ export class RSVPModal extends React.Component {
   }
 
   submitRSVP(event) {
+    event.preventDefault();
+    const { firstName, lastName, email, plusOne } = this.state 
     if(this.isValid()) {
-      axios.post(process.env.API_URL).then(response => console.log(response))
+      axios.post(`${process.env.API_URL}/rsvp`, { firstName, lastName, email, plusOne }).then(response => console.log(response))
       .catch(err => console.error(err))
     }
   }
