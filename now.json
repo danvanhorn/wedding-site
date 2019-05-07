@@ -56,5 +56,8 @@
       },
       "dest": "/index.html"
     }
-  ]
+  ],
+  "env": {
+      "API_URL": "@API_URL"
+    }
 }
