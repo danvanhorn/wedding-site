@@ -26,18 +26,22 @@ export class RSVPModal extends React.Component {
     }
 
     if(!lastName) {
-      return false;
+      return false
     }
 
     if(!validator.isEmail(email)) {
       // prompt for valid email
-      return false;
+      return false
     }
+
+    return true
   }
 
   submitRSVP(event) {
+    const { firstName, lastName, email, plusOne } = this.state 
     if(this.isValid()) {
-      axios.post(process.env.API_URL).then(response => console.log(response))
+      axios.post(`${process.env.API_URL}rsvp`, { firstName, lastName, email, plusOne })
+      .then(response => console.log(response))
       .catch(err => console.error(err))
     }
   }
