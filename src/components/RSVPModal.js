@@ -67,7 +67,7 @@ export class RSVPModal extends React.Component {
           <input placeholder='Email' value={this.state.email} onChange={(event) => this.setState({ email: event.target.value })}/>
         </Form.Field>
         <Form.Field>
-          <Checkbox label='Plus one?' onChange={(event) => this.setState({ plusOne: event.target.value })}/>
+          <Checkbox label='Plus one?' value={this.state.plusOne} onChange={(event) => this.setState({ plusOne: !this.state.plusOne })}/>
         </Form.Field>
         <Button type='submit'>Submit</Button>
       </Form>
