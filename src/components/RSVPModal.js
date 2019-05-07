@@ -23,16 +23,15 @@ export class RSVPModal extends React.Component {
     const { firstName, lastName, email } = this.state 
     if(!firstName) {
       return false
-    }
-
-    if(!lastName) {
+    } else if(!lastName) {
       return false;
-    }
-
-    if(!validator.isEmail(email)) {
+    } else if(!validator.isEmail(email)) {
       // prompt for valid email
       return false;
+    } else {
+      return true
     }
+
   }
 
   submitRSVP(event) {
