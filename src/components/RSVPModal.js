@@ -40,7 +40,7 @@ export class RSVPModal extends React.Component {
     const { firstName, lastName, email, plusOne } = this.state 
     if(this.isValid()) {
       try {
-        const response = await window.fetch(`https://nodejs.vanhornd.now.sh/rsvp`, { 
+        const response = await window.fetch(`https://${process.env.API_URL}/rsvp`, { 
           method: "POST",
           headers: {
             "Content-Type": "application/json"
