@@ -12,11 +12,13 @@ export class RSVPModal extends React.Component {
       lastName: '',
       email: '',
       message: '',
-      plusOne: false
+      plusOne: false,
+      showModal: false
     }
 
-    this.submitRSVP = this.submitRSVP.bind(this);
-    this.isValid = this.isValid.bind(this);
+    this.submitRSVP = this.submitRSVP.bind(this)
+    this.isValid = this.isValid.bind(this)
+    this.closeModal = this.closeModal.bind(this)
   }
 
   isValid() {
@@ -40,7 +42,7 @@ export class RSVPModal extends React.Component {
     if(this.isValid()) {
       window.fetch(`https://nodejs.vanhornd.now.sh/rsvp`, { 
         method: "POST",
-        mode: "cors",
+        mode: "no-cors",
         body: JSON.stringify({ firstName, lastName, email, plusOne })
       })
       .then(async response => {
@@ -48,15 +50,25 @@ export class RSVPModal extends React.Component {
         if(response.status === 202) {
           this.setState({ message: `${firstName} ${lastName} has already submitted their RSVP.`})
         } else {
-          this.setState({})
+          this.setState({ message: `RSVP submitted for ${firstName} ${lastName}.` })
+          setTimeout(this.closeModal(), 3000)
         }
       })
       .catch(err => console.error(err))
     }
+    
+  }
+
+  closeModal = () => {
+    this.setState({ 
+      showModal: false,
+      message: ''
+    })
   }
 
   render() {
-    return <Modal trigger={<Button color='red'>RSVP Online</Button> }>
+    const { showModal } = this.state
+    return <Modal open={showModal} onClose={this.closeModal} trigger={<Button onClick={() => this.setState({ showModal: true })} color='red'>RSVP Online</Button> }>
     <Modal.Header>RSVP</Modal.Header>
     <Modal.Content>
       <Modal.Description>
