@@ -43,7 +43,14 @@ export class RSVPModal extends React.Component {
         mode: "cors",
         body: JSON.stringify({ firstName, lastName, email, plusOne })
       })
-      .then(response => console.log(response))
+      .then(async response => {
+        const { firstName, lastName } = await response.json()
+        if(response.status === 202) {
+          this.setState({ message: `${firstName} ${lastName} has already submitted their RSVP.`})
+        } else {
+          this.setState({})
+        }
+      })
       .catch(err => console.error(err))
     }
   }
