@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Divider, Header, Image, Card, Icon, Embed } from 'semantic-ui-react'
 import { RSVPModal } from './components/RSVPModal'
+import { Countdown } from './components/Countdown';
 
 const App = ({ mobile }) => (
     <Container ui text>
@@ -9,6 +10,10 @@ const App = ({ mobile }) => (
         <Image src='./images/0.jpg' wrapped/>
         <Header as='h1'>To the marriage of Daniel Richard Van Horn and Rosanna Rocha Luna</Header>
       </Container>
+
+      <Divider hidden/>
+
+      <Countdown/>
 
       <Divider />
 
@@ -29,25 +34,41 @@ const App = ({ mobile }) => (
                 />
               <Card.Content>
                 <Card.Header as='h4'>The Ceremony</Card.Header>
-                <Card.Meta>Date/Time<br/>Address</Card.Meta>
+                <Card.Meta textAlign="left">August 31, 2019 / Time<br/>17120 NE Fairview Dr.<br/> Dundee OR 97115</Card.Meta>
               </Card.Content>
             </Card>            
             <Card centered>
             <Embed 
-                url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2810.1226602889983!2d-123.08668068494222!3d45.22508637909886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549545d4d6614bd1%3A0xba7a6247361479af!2s14905+SE+Foster+Rd%2C+Dayton%2C+OR+97114!5e0!3m2!1sen!2sus!4v1557079323943!5m2!1sen!2sus"
+                url="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2806.923589945555!2d-123.06488768377042!3d45.289765753085554!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x549540c2f9723503%3A0x662d1f1541be1ceb!2s17120+NE+Fairview+Dr%2C+Dundee%2C+OR+97115!5e0!3m2!1sen!2sus!4v1557286110594!5m2!1sen!2sus"
                 defaultActive
               />
               <Card.Content>
                 <Card.Header as='h4'>The Reception</Card.Header>
-                <Card.Meta>Date/Time<br/>Address</Card.Meta>
+                <Card.Meta textAlign="left">August 31, 2019 / Time<br/>17120 NE Fairview Dr.<br/> Dundee OR 97115</Card.Meta>
               </Card.Content>
             </Card>
         </Card.Group>
       </Container>
 
+      <Divider hidden/>
+
       <Container textAlign='center'>
           <RSVPModal />
-        </Container>
+      </Container>
+
+      <Divider />
+
+      <Container textAlign="center">
+        <Header as="h1">Registry</Header>
+        <Icon.Group>
+          <a href="https://amazon.com">
+            <Icon link name="amazon" color="yellow" size="huge"></Icon>
+          </a>
+          <a href="https://target.com">
+            <Icon link name="target" color="red" size="huge"></Icon>
+          </a>
+        </Icon.Group>
+      </Container>
 
       <Divider />
 
@@ -62,13 +83,16 @@ const App = ({ mobile }) => (
               <Card.Description>
                 <div>
                   <a href="tel:19717060291">
-                    <Icon name="phone" size="large"></Icon>
+                    <Icon link name="phone" size="large"></Icon>
+                  </a>
+                  <a href="mailto:danandrosywedding@gmail.com">
+                    <Icon link name="mail" size="large"></Icon>
                   </a>
                   <a href="https://www.facebook.com/rosy.rocha">
-                    <Icon name="facebook official" size="large"></Icon>
+                    <Icon link name="facebook official" size="large"></Icon>
                   </a>
                   <a href="https://www.instagram.com/rosy_rocha/?hl=en">
-                    <Icon name="instagram" size="large"></Icon>
+                    <Icon link name="instagram" size="large"></Icon>
                   </a>
                 </div>
               </Card.Description>
@@ -82,13 +106,16 @@ const App = ({ mobile }) => (
               <Card.Description>
                 <div>
                   <a href="tel:19717060291">
-                    <Icon name="phone" size="large"></Icon>
+                    <Icon link name="phone" size="large"></Icon>
+                  </a>
+                  <a href="mailto:danandrosywedding@gmail.com">
+                    <Icon link name="mail" size="large"></Icon>
                   </a>
                   <a href="https://www.facebook.com/dan.vanhorn.14">
-                    <Icon name="facebook official" size="large"></Icon>
+                    <Icon link name="facebook official" size="large"></Icon>
                   </a>
                   <a href="https://www.instagram.com/daniel_van_horn/?hl=en">
-                    <Icon name="instagram" size="large"></Icon>
+                    <Icon link name="instagram" size="large"></Icon>
                   </a>  
                 </div>
               </Card.Description>
