@@ -1,6 +1,6 @@
 import React from 'react'
 import validator from 'validator'
-import { Button, Modal, Form, Checkbox, Message } from 'semantic-ui-react'
+import { Container, Button, Modal, Form, Checkbox, Message } from 'semantic-ui-react'
 
 
 export class RSVPModal extends React.Component {
@@ -35,28 +35,35 @@ export class RSVPModal extends React.Component {
     }
   }
 
-  submitRSVP(event) {
+  async submitRSVP(event) {
     event.preventDefault();
     const { firstName, lastName, email, plusOne } = this.state 
     if(this.isValid()) {
-      window.fetch(`https://nodejs.vanhornd.now.sh/rsvp`, { 
-        method: "POST",
-        body: JSON.stringify({ firstName, lastName, email, plusOne })
-      })
-      .then(response => {
-        response.json()
-          .then(data => {
-            console.log(data)
-            if(data.exists) {
-              this.setState({ error: true })
-            } else {
-              this.setState({ success: true })
-            }
-          }).catch(err => console.error(err))
-      })
-      .catch(err => console.error(err))
-    }
-    
+      try {
+        const response = await window.fetch(`https://nodejs.vanhornd.now.sh/rsvp`, { 
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          type: "application/json",
+          body: JSON.stringify({ firstName, lastName, email, plusOne })
+        })
+        console.log("response ", response)
+        if (response.status === 200){
+          const data = await response.json()
+          console.log(data)
+          if(data.exists && data.exists === true) {
+            console.log('data exists')
+            this.setState({ error: true })
+          } else {
+            console.log('data created')
+            this.setState({ success: true })
+          }
+        }
+      } catch(err) {
+        console.error(err)
+      }
+    }    
   }
 
   closeModal = () => {
@@ -73,33 +80,37 @@ export class RSVPModal extends React.Component {
 
   render() {
     const { showModal, success, error } = this.state
-    return <Modal open={showModal} onClose={this.closeModal} trigger={<Button onClick={() => this.setState({ showModal: true })} color='red'>RSVP Online</Button> }>
-    <Modal.Header>RSVP</Modal.Header>
-    <Modal.Content>
-      <Modal.Description>
-      <Form success={success} error={error} onSubmit={this.submitRSVP}>
-        <Form.Field>
-          <label>First Name</label>
-          <input placeholder='First Name' value={this.state.firstName} onChange={(event) => this.setState({ firstName: event.target.value })}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Last Name</label>
-          <input placeholder='Last Name' value={this.state.lastName} onChange={(event) => this.setState({ lastName: event.target.value })}/>
-        </Form.Field>
-        <Form.Field>
-          <label>Email</label>
-          <input placeholder='Email' value={this.state.email} onChange={(event) => this.setState({ email: event.target.value })}/>
-        </Form.Field>
-        <Form.Field>
-          <Checkbox label='Plus one?' onChange={(event) => this.setState({ plusOne: !this.state.plusOne })}/>
-        </Form.Field>
-          <Message success header='Success' content="You've submitted your RSVP" />
-          <Message error header='Sorry...' content="It looks like you've already submitted an RSVP" />
-        <Button type='submit' color='blue'>Submit</Button>
-      </Form>
-      </Modal.Description>
-    </Modal.Content>
-  </Modal>
+    return (
+    <Container textAlign="center">
+      <Modal open={showModal} onClose={this.closeModal} trigger={<Button onClick={() => this.setState({ showModal: true })} color='red'>RSVP Online</Button>}>
+        <Modal.Header>RSVP</Modal.Header>
+        <Modal.Content>
+          <Modal.Description>
+            <Form success={success} error={error} onSubmit={this.submitRSVP}>
+              <Form.Field>
+                <label>First Name</label>
+                <input placeholder='First Name' value={this.state.firstName} onChange={(event) => this.setState({ firstName: event.target.value })} />
+              </Form.Field>
+              <Form.Field>
+                <label>Last Name</label>
+                <input placeholder='Last Name' value={this.state.lastName} onChange={(event) => this.setState({ lastName: event.target.value })} />
+              </Form.Field>
+              <Form.Field>
+                <label>Email</label>
+                <input placeholder='Email' value={this.state.email} onChange={(event) => this.setState({ email: event.target.value })} />
+              </Form.Field>
+              <Form.Field>
+                <Checkbox label='Plus one?' onChange={(event) => this.setState({ plusOne: !this.state.plusOne })} />
+              </Form.Field>
+              <Message success header='Success' content="You've submitted your RSVP" />
+              <Message error header='Sorry...' content="It looks like you've already submitted an RSVP" />
+              <Button type='submit' color='blue'>Submit</Button>
+            </Form>
+          </Modal.Description>
+        </Modal.Content>
+      </Modal>
+    </Container>
+    )
   }
 
 }
