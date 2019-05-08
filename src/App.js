@@ -12,8 +12,9 @@ const App = ({ mobile }) => (
 
       <Divider />
 
-      <Container textAlign='center'>
-        <RSVPModal />
+      <Container textAlign='left'>
+        <Header as='h1' textAlign='center'>The Couple</Header>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </Container>
 
       <Divider />
@@ -43,6 +44,10 @@ const App = ({ mobile }) => (
             </Card>
         </Card.Group>
       </Container>
+
+      <Container textAlign='center'>
+          <RSVPModal />
+        </Container>
 
       <Divider />
 

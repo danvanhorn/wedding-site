@@ -1,6 +1,6 @@
 import React from 'react'
 import validator from 'validator'
-import { Button, Modal, Form, Checkbox } from 'semantic-ui-react'
+import { Button, Modal, Form, Checkbox, Message } from 'semantic-ui-react'
 
 
 
@@ -11,9 +11,10 @@ export class RSVPModal extends React.Component {
       firstName: '',
       lastName: '',
       email: '',
-      message: '',
       plusOne: false,
-      showModal: false
+      showModal: false,
+      success: false,
+      error: false
     }
 
     this.submitRSVP = this.submitRSVP.bind(this)
@@ -33,25 +34,22 @@ export class RSVPModal extends React.Component {
     } else {
       return true
     }
-
   }
 
   submitRSVP(event) {
     event.preventDefault();
     const { firstName, lastName, email, plusOne } = this.state 
     if(this.isValid()) {
-      window.fetch(`https://nodejs.vanhornd.now.sh/rsvp`, { 
+      window.fetch(`${process.env.API_URL}/rsvp`, { 
         method: "POST",
         mode: "no-cors",
         body: JSON.stringify({ firstName, lastName, email, plusOne })
       })
-      .then(async response => {
-        const { firstName, lastName } = await response.json()
+      .then(response => {
         if(response.status === 202) {
-          this.setState({ message: `${firstName} ${lastName} has already submitted their RSVP.`})
+          this.setState({ success: true, error: false })
         } else {
-          this.setState({ message: `RSVP submitted for ${firstName} ${lastName}.` })
-          setTimeout(this.closeModal(), 3000)
+          this.setState({ error: true, success: false })
         }
       })
       .catch(err => console.error(err))
@@ -61,14 +59,19 @@ export class RSVPModal extends React.Component {
 
   closeModal = () => {
     this.setState({ 
+      firstName: '',
+      lastName: '',
+      email: '',
+      plusOne: false,
       showModal: false,
-      message: ''
+      success: false,
+      error: false
     })
   }
 
   render() {
-    const { showModal } = this.state
-    return <Modal open={showModal} onClose={this.closeModal} trigger={<Button onClick={() => this.setState({ showModal: true })} color='red'>RSVP Online</Button> }>
+    const { showModal, success, error } = this.state
+    return <Modal success={success} error={error} open={showModal} onClose={this.closeModal} trigger={<Button onClick={() => this.setState({ showModal: true })} color='red'>RSVP Online</Button> }>
     <Modal.Header>RSVP</Modal.Header>
     <Modal.Content>
       <Modal.Description>
@@ -86,9 +89,11 @@ export class RSVPModal extends React.Component {
           <input placeholder='Email' value={this.state.email} onChange={(event) => this.setState({ email: event.target.value })}/>
         </Form.Field>
         <Form.Field>
-          <Checkbox label='Plus one?' value={this.state.plusOne} onChange={(event) => this.setState({ plusOne: !this.state.plusOne })}/>
+          <Checkbox label='Plus one?' onChange={(event) => this.setState({ plusOne: !this.state.plusOne })}/>
         </Form.Field>
-        <Button type='submit'>Submit</Button>
+        <Message error header='Success' content="You've submitted your RSVP" />
+        <Message success header='Sorry...' content="It looks like you've already submitted an RSVP" />
+        <Button type='submit' color='blue'>Submit</Button>
       </Form>
       </Modal.Description>
     </Modal.Content>

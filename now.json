@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "alias": "danandrosywedding.com",
   "name": "wedding-site",
   "builds": [
     {
@@ -58,6 +59,6 @@
     }
   ],
   "env": {
-      "API_URL": "http://nodejs.vanhornd.now.sh"
-    }
+    "API_URL": "@api_url"
+  }
 }
