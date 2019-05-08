@@ -15,6 +15,9 @@
       "use": "@now/static"
     }
   ],
+  "env": {
+    "API_URL": "@api_url"
+  },
   "routes": [
     {
       "src": "/static/(.*)",
@@ -57,8 +60,5 @@
       },
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "API_URL": "@api_url"
-  }
+  ]
 }

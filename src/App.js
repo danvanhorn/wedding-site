@@ -4,7 +4,7 @@ import { RSVPModal } from './components/RSVPModal'
 import { Countdown } from './components/Countdown';
 
 const App = ({ mobile }) => (
-    <Container ui text>
+    <Container text>
       <Container textAlign='center'>
         <Header as='h1'>You're Invited...</Header>
         <Image src='./images/0.jpg' wrapped/>
