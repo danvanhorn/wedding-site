@@ -40,7 +40,7 @@ export class RSVPModal extends React.Component {
     const { firstName, lastName, email, plusOne } = this.state 
     if(this.isValid()) {
       try {
-        const response = await window.fetch(`https://${process.env.API_URL}/api/rsvp`, { 
+        const response = await window.fetch(`${window.location.href}api/rsvp`, { 
           method: "POST",
           headers: {
             "Content-Type": "application/json"
@@ -51,13 +51,10 @@ export class RSVPModal extends React.Component {
         console.log("response ", response)
         if (response.status === 200){
           const data = await response.json()
-          console.log(data)
           if(data.exists && data.exists === true) {
-            console.log('data exists')
-            this.setState({ error: true })
+            this.setState({ error: true, success: false })
           } else {
-            console.log('data created')
-            this.setState({ success: true })
+            this.setState({ success: true, error: false })
           }
         }
       } catch(err) {

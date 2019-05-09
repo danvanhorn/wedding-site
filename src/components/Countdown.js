@@ -9,6 +9,6 @@ require('moment-countdown')
 export const Countdown = () => 
   <Container textAlign="center">
     <Header as="h3">
-      {`${moment(new Date().toString()).countdown('2019-8-31', countdown.MONTHS|countdown.DAYS).toString()} until the wedding`}
+      {`${moment().countdown('2019-8-31', countdown.MONTHS|countdown.DAYS).toString()} until the wedding`}
     </Header>
   </Container>
