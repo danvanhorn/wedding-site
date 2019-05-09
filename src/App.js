@@ -10,6 +10,7 @@ import { Contact } from './components/Contact'
 
 const App = ({ mobile }) => (
     <Container text>
+      <Divider hidden/>
       <Invitation />
       <Divider hidden/>
       <Countdown/>
@@ -25,7 +26,7 @@ const App = ({ mobile }) => (
       <Contact />
       <Divider hidden/>
       <Container textAlign="center">
-        <p>Copyright 2019 Dan Van Horn</p>
+        <p style={{ color: 'grey' }}>Copyright &copy; 2019 Dan Van Horn</p>
       </Container>
     </Container>  
 )
