@@ -9,7 +9,7 @@ module.exports = {
     alias: {
       '../../theme.config$': require('path').join(
         __dirname,
-        '/src/semantic-ui/theme.config',
+        './src/semantic-ui/theme.config',
       ),
     },
   },
