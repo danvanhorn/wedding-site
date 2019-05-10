@@ -3,7 +3,7 @@
 *******************************/
 
 @primaryColor: #002f4e;
-@pageBackground: #eff0f1;
+@pageBackground: #ffffff;
 
 @headerFont        : 'Bodoni', Arial, Helvetica, sans-serif;
 @pageFont          : 'Josefin Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -12,3 +12,5 @@
 @importGoogleFonts : true;
 @googleFontRequest : 'Bodoni|Josefin+Sans:200,400,700';
 @googleFontFamily  : 'Bodoni|Josefin+Sans:200,400,700';
+
+

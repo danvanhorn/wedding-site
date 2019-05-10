@@ -13,13 +13,13 @@ const App = ({ mobile }) => (
       <Divider hidden/>
       <Invitation />
       <Divider hidden/>
+      <RSVPModal />
+      <Divider hidden/>
       <Countdown/>
       <Divider />
       <About />
       <Divider />
       <Location />
-      <Divider hidden/>
-      <RSVPModal />
       <Divider />
       <Registry />
       <Divider />
