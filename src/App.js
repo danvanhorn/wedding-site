@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Divider } from 'semantic-ui-react'
-import { RSVPModal } from './components/RSVPModal'
 import { Countdown } from './components/Countdown'
 import { Invitation } from './components/Invitation'
 import { About } from './components/About'
@@ -12,8 +11,6 @@ const App = ({ mobile }) => (
     <Container text>
       <Divider hidden/>
       <Invitation />
-      <Divider hidden/>
-      <RSVPModal />
       <Divider hidden/>
       <Countdown/>
       <Divider />
