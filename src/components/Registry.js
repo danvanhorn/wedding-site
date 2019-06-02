@@ -5,10 +5,10 @@ export const Registry = () =>
     <Container textAlign="center">
         <Header as="h1">Registry</Header>
         <Icon.Group>
-            <a href="https://amazon.com">
+            <a href="https://www.amazon.com/wedding/organize-registry?ref_=wedding_subnav">
                 <Icon link name="amazon" color="yellow" size="massive"></Icon>
             </a>
-            <a href="https://target.com">
+            <a href="https://tgt.gifts/danandrosywedding">
                 <Icon link name="target" color="red" size="massive"></Icon>
             </a>
         </Icon.Group>
