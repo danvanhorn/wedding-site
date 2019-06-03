@@ -81,7 +81,7 @@ export class RSVPModal extends React.Component {
     return (
     <Container textAlign="center">
       <Modal open={showModal} onClose={this.closeModal} trigger={<Button onClick={() => this.setState({ showModal: true })} color='red'>RSVP Online</Button>}>
-        <Modal.Header>RSVP</Modal.Header>
+        <Modal.Header as='h2'>RSVP</Modal.Header>
         <Modal.Content>
           <Modal.Description>
             <Form success={success} error={error} onSubmit={this.submitRSVP}>

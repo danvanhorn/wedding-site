@@ -3,7 +3,7 @@ import { Container, Header, Card, Embed } from 'semantic-ui-react'
 
 export const Location = () => 
     <Container textAlign='center'>
-        <Header as='h1'>Location</Header>
+        <Header as='h4'>Location</Header>
         <Card.Group centered>
             <Card centered>
                 <Embed

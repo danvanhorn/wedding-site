@@ -5,7 +5,7 @@
 @primaryColor: #002f4e;
 @pageBackground: @white;
 
-@headerFont        : 'Mr De Haviland', cursive;
+@headerFont        : 'Aurella', 'Mr De Haviland', cursive;
 
 @pageFont          : 'Abel', sans-serif;
 
@@ -16,7 +16,8 @@
 
 @googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
 
-@headerLineHeight : unit((18 / 14), em);
+@headerFontWeight : @normal;
+@headerLineHeight : unit((20 / 14), em);
 
 @h1 : unit((64 / 14), rem);
 @h2 : unit((58 / 14), rem);

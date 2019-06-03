@@ -4,3 +4,12 @@
 
 @primaryColor: #002f4e;
 @pageBackground: #4286f4;
+
+@font-path: '../../fonts';
+@font-face {
+    font-family: 'Aurella';
+    src: url('@{font-path}/aurella-webfont.woff2') format('woff2'),
+         url('@{font-path}/aurella-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

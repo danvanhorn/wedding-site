@@ -3,7 +3,7 @@ import { Container, Header, Card, Image, Icon } from 'semantic-ui-react'
 
 export const Contact = () => 
     <Container textAlign='center'>
-        <Header as='h1'>Contact</Header>
+        <Header as='h4'>Contact</Header>
         <Card.Group centered>
             <Card>
                 <Image src='https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/42283808_10214674829479375_6159875854366146560_n.jpg?_nc_cat=108&_nc_ht=scontent-sea1-1.xx&oh=57004a8d22d5b496f3f763ad0302ddec&oe=5D2F04D3' />
