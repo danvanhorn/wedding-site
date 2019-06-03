@@ -5,15 +5,24 @@
 @primaryColor: #002f4e;
 @pageBackground: @white;
 
-@headerFont        : 'Old Standard TT', Arial, Helvetica, sans-serif;
-@pageFont          : 'Josefin Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+@headerFont        : 'Mr De Haviland', cursive;
 
-@googleFontName    : 'Old+Standard+TT|Josefin+Sans';
+@pageFont          : 'Abel', sans-serif;
+
+@googleFontName    : 'Mr+De+Haviland|Abel';
 @importGoogleFonts : true;
 @googleFontSizes   : '400,700';
 @googleSubset      : 'latin';
 
 @googleFontRequest : '@{googleFontName}:@{googleFontSizes}&subset=@{googleSubset}';
+
+@headerLineHeight : unit((18 / 14), em);
+
+@h1 : unit((64 / 14), rem);
+@h2 : unit((58 / 14), rem);
+@h3 : unit((52 / 14), rem);
+@h4 : unit((48 / 14), rem);
+@h5 : unit((42 / 14), rem);
 
 @green : #228b22; 
 

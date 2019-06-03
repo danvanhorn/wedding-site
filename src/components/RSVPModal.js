@@ -38,6 +38,7 @@ export class RSVPModal extends React.Component {
   async submitRSVP(event) {
     event.preventDefault();
     const { firstName, lastName, email, plusOne } = this.state 
+    console.log({firstName, lastName, email, plusOne})
     if(this.isValid()) {
       try {
         const response = await window.fetch(`${window.location.href}api/rsvp`, { 
